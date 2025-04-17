@@ -1,0 +1,11 @@
+﻿<RevitAddIns>
+    <AddIn Type="Application">
+        <Name>DBimTool</Name>
+        <Assembly>DBimTool/DBimTool.dll</Assembly>
+        <AddInId>750E7E24-A414-49D0-A908-62F2C9127EFA</AddInId>
+        <FullClassName>DBimTool.Application</FullClassName>
+        <VendorId>Development</VendorId>
+        <VendorDescription></VendorDescription>
+        <VendorEmail></VendorEmail>
+    </AddIn>
+</RevitAddIns>
