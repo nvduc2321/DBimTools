@@ -67,7 +67,7 @@ namespace DBimTool.Utils.RevCurves
                     var plane = Plane.CreateByNormalAndOrigin(nor, l.Mid());
                     var sket = SketchPlane.Create(document, plane);
 
-                    document.Create.NewModelCurve(l, sket);
+                    var lModel = document.Create.NewModelCurve(l, sket);
                 }
                 catch (Exception)
                 {

@@ -5,7 +5,7 @@
         <LangVersion>latest</LangVersion>
         <PlatformTarget>x64</PlatformTarget>
         <ImplicitUsings>true</ImplicitUsings>
-        <PublishAddinFiles>true</PublishAddinFiles>
+        <PublishAddinFiles>false</PublishAddinFiles>
         <Configurations>Debug R20;Debug R21;Debug R22;Debug R23;Debug R24;Debug R25</Configurations>
         <Configurations>$(Configurations);Release R20;Release R21;Release R22;Release R23;Release R24;Release R25</Configurations>
     </PropertyGroup>
@@ -42,6 +42,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.4" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
         <PackageReference Include="Nice3point.Revit.Api.AdWindows" Version="2024.3.10" />
         <PackageReference Include="Nice3point.Revit.Build.Tasks" Version="1.*" />
         <PackageReference Include="Nice3point.Revit.Toolkit" Version="$(RevitVersion).*" />
@@ -57,14 +59,15 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="Models" />
-    </ItemGroup>
-
-    <ItemGroup>
       <Reference Include="System.Windows.Forms" />
     </ItemGroup>
 
     <ItemGroup>
+      <Compile Update="Properties\ParameterMainHole1.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>ParameterMainHole1.resx</DependentUpon>
+      </Compile>
       <Compile Update="Properties\Standard.Designer.cs">
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
@@ -73,6 +76,10 @@
     </ItemGroup>
 
     <ItemGroup>
+      <EmbeddedResource Update="Properties\ParameterMainHole1.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>ParameterMainHole1.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
       <EmbeddedResource Update="Properties\Standard.ja-JP.resx">
         <Generator>PublicResXFileCodeGenerator</Generator>
       </EmbeddedResource>

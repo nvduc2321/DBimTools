@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Chieu_cao_bung" xml:space="preserve">
+    <value>Chieu_cao_bung</value>
+  </data>
+  <data name="Chieu_cao_co" xml:space="preserve">
+    <value>Chieu_cao_co</value>
+  </data>
+  <data name="Chieu_cao_napga" xml:space="preserve">
+    <value>Chieu_cao_napga</value>
+  </data>
+  <data name="Chieu_dai_BTlot" xml:space="preserve">
+    <value>Chieu_dai_BTlot</value>
+  </data>
+  <data name="Chieu_dai_co" xml:space="preserve">
+    <value>Chieu_dai_co</value>
+  </data>
+  <data name="Chieu_dai_ga" xml:space="preserve">
+    <value>Chieu_dai_ga</value>
+  </data>
+  <data name="Chieu_day_Tuong" xml:space="preserve">
+    <value>Chieu_day_Tuong</value>
+  </data>
+  <data name="Chieu_day_TuongDuoi" xml:space="preserve">
+    <value>Chieu_day_TuongDuoi</value>
+  </data>
+  <data name="Chieu_day_TuongTren" xml:space="preserve">
+    <value>Chieu_day_TuongTren</value>
+  </data>
+  <data name="Chieu_rong_BTlot" xml:space="preserve">
+    <value>Chieu_rong_BTlot</value>
+  </data>
+  <data name="Chieu_rong_co" xml:space="preserve">
+    <value>Chieu_rong_co</value>
+  </data>
+  <data name="Chieu_rong_ga" xml:space="preserve">
+    <value>Chieu_rong_ga</value>
+  </data>
+  <data name="Day_BT_lot" xml:space="preserve">
+    <value>Day_BT_lot</value>
+  </data>
+  <data name="Day_co_ga" xml:space="preserve">
+    <value>Day_co_ga</value>
+  </data>
+  <data name="D_congMax" xml:space="preserve">
+    <value>D_congMax</value>
+  </data>
+  <data name="Goc_LoMo1" xml:space="preserve">
+    <value>Goc_LoMo1</value>
+  </data>
+  <data name="Goc_LoMo2" xml:space="preserve">
+    <value>Goc_LoMo2</value>
+  </data>
+  <data name="Goc_LoMo3" xml:space="preserve">
+    <value>Goc_LoMo3</value>
+  </data>
+  <data name="Goc_LoMo4" xml:space="preserve">
+    <value>Goc_LoMo4</value>
+  </data>
+  <data name="HOLE_CIRCLE_1" xml:space="preserve">
+    <value>Lỗ mở tròn 1</value>
+  </data>
+  <data name="HOLE_CIRCLE_2" xml:space="preserve">
+    <value>Lỗ mở tròn 2</value>
+  </data>
+  <data name="HOLE_CIRCLE_3" xml:space="preserve">
+    <value>Lỗ mở tròn 3</value>
+  </data>
+  <data name="HOLE_CIRCLE_4" xml:space="preserve">
+    <value>Lỗ mở tròn 4</value>
+  </data>
+  <data name="HOLE_NAME" xml:space="preserve">
+    <value>Tên hố ga</value>
+  </data>
+  <data name="HOLE_RECT_1" xml:space="preserve">
+    <value>Lỗ mở vuông 1</value>
+  </data>
+  <data name="HOLE_RECT_2" xml:space="preserve">
+    <value>Lỗ mở vuông 2</value>
+  </data>
+  <data name="HOLE_RECT_3" xml:space="preserve">
+    <value>Lỗ mở vuông 3</value>
+  </data>
+  <data name="HOLE_RECT_4" xml:space="preserve">
+    <value>Lỗ mở vuông 4</value>
+  </data>
+  <data name="LoMo1_B" xml:space="preserve">
+    <value>LoMo1_B</value>
+  </data>
+  <data name="LoMo1_dV" xml:space="preserve">
+    <value>LoMo1_dV</value>
+  </data>
+  <data name="LoMo1_H" xml:space="preserve">
+    <value>LoMo1_H</value>
+  </data>
+  <data name="LoMo1_R" xml:space="preserve">
+    <value>LoMo1_R</value>
+  </data>
+  <data name="LoMo2_B" xml:space="preserve">
+    <value>LoMo2_B</value>
+  </data>
+  <data name="LoMo2_dV" xml:space="preserve">
+    <value>LoMo2_dV</value>
+  </data>
+  <data name="LoMo2_H" xml:space="preserve">
+    <value>LoMo2_H</value>
+  </data>
+  <data name="LoMo2_R" xml:space="preserve">
+    <value>LoMo2_R</value>
+  </data>
+  <data name="LoMo3_B" xml:space="preserve">
+    <value>LoMo3_B</value>
+  </data>
+  <data name="LoMo3_dV" xml:space="preserve">
+    <value>LoMo3_dV</value>
+  </data>
+  <data name="LoMo3_H" xml:space="preserve">
+    <value>LoMo3_H</value>
+  </data>
+  <data name="LoMo3_R" xml:space="preserve">
+    <value>LoMo3_R</value>
+  </data>
+  <data name="LoMo4_B" xml:space="preserve">
+    <value>LoMo4_B</value>
+  </data>
+  <data name="LoMo4_dV" xml:space="preserve">
+    <value>LoMo4_dV</value>
+  </data>
+  <data name="LoMo4_H" xml:space="preserve">
+    <value>LoMo4_H</value>
+  </data>
+  <data name="LoMo4_R" xml:space="preserve">
+    <value>LoMo4_R</value>
+  </data>
+</root>

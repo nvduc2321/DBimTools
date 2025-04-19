@@ -4,6 +4,22 @@ namespace DBimTool.Utils.NumberUtils
 {
     public static class NumberUtil
     {
+        public static int GetQuantityFromSpacing(this double lengthMm, double spacingMm, double offetSideMm, out double lengthDuMm)
+        {
+            lengthDuMm = 0;
+            try
+            {
+                var lengthTarget = lengthMm - 2 * offetSideMm;
+                lengthDuMm = lengthTarget % spacingMm;
+                var result = int.Parse(Math.Round((lengthTarget - lengthDuMm) / spacingMm, 0).ToString());
+                return result + 1;
+
+            }
+            catch (Exception)
+            {
+            }
+            return 0;
+        }
         public static double SpacingFromMaxSpacing(double length, double maxSpacing, out int numberOfSpacing)
         {
             length = length.RoundByDecimalPlace(6);

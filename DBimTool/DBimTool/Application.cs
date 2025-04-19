@@ -22,7 +22,7 @@ namespace DBimTool
         private void _initPanelCmdMainHoleRebar()
         {
             //create plan view
-            PANEL_MAIN_HOLE.AddPushButton<Commands.StartupCommand>("abc")
+            PANEL_MAIN_HOLE.AddPushButton<Commands.Test>("abc")
                 .SetImage("/DBimTool;component/Resources/Icons/RibbonIcon16.png")
                 .SetLargeImage("/DBimTool;component/Resources/Icons/RibbonIcon32.png");
 
