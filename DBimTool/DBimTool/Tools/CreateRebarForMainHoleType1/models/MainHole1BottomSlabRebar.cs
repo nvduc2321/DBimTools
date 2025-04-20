@@ -68,7 +68,7 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1.models
                             mainHole1BottomSlabRebar.HostInfo.PointControls[3] + i * vty * spacing.MmToFoot());
                         var rb = new RevRebar();
                         rb.Lines = new List<Curve>();
-                        rb.Lines.AddRange(new List<Curve>() { l});
+                        rb.Lines.AddRange(new List<Curve>() { l });
                         result.Add(rb);
                         if (i == qty - 1)
                         {

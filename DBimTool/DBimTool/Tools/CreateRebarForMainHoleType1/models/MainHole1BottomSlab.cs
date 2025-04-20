@@ -1,4 +1,5 @@
-﻿using DBimTool.Utils.RevHoles;
+﻿using DBimTool.Utils.NumberUtils;
+using DBimTool.Utils.RevHoles;
 using DBimTool.Utils.RevOpenings;
 using System.Windows;
 
@@ -20,7 +21,7 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1.models
 
         public override double GetLength()
         {
-            return RevHole1Info.ChieuDaiGa;
+            return RevHole1Info.ChieuDaiGa + 100.MmToFoot() * 2;
         }
 
         public override RevOpening GetOpening()
@@ -77,7 +78,7 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1.models
 
         public override double GetWidth()
         {
-            return RevHole1Info.ChieuRongGa;
+            return RevHole1Info.ChieuRongGa + 100.MmToFoot() * 2;
         }
     }
 }
