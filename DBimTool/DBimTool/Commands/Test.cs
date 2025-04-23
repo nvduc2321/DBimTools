@@ -5,6 +5,9 @@ using DBimTool.Utils.SelectFilters;
 using DBimTool.Utils.RevHoles;
 using System.Diagnostics;
 using Newtonsoft.Json;
+using DBimTool.Utils.NumberUtils;
+using DBimTool.Utils.RevCurves;
+using DBimTool.Tools.CreateRebarForMainHoleType1.models;
 
 namespace DBimTool.Commands
 {
@@ -20,8 +23,23 @@ namespace DBimTool.Commands
 				try
 				{
 					//--------
-					var f = Document.GetElement(UiDocument.Selection.PickObject(ObjectType.Element, new GenericSelectionFilter(BuiltInCategory.OST_StructuralFoundation)));
-                    //--------
+					var f = Document.GetElement(
+						UiDocument.Selection.PickObject(ObjectType.Element, 
+						new GenericSelectionFilter(BuiltInCategory.OST_StructuralFoundation))) as FamilyInstance;
+					RevHole1 hole = f.GetRevHole1();
+                    var d1 = new MainHole1Wall1(hole);
+					if (d1 != null) { 
+						var l1 = Line.CreateBound(d1.Opening.Center, d1.Opening.Center + d1.VtY * 1000.MmToFoot());
+						using (var ts = new Transaction(Document, "name transaction"))
+						{
+							ts.Start();
+							//--------
+							Document.CreateCurves(l1);
+							//--------
+							ts.Commit();
+						}
+					}
+					//--------
                     tsg.Assimilate();
 				}
 				catch (Autodesk.Revit.Exceptions.OperationCanceledException) { }
