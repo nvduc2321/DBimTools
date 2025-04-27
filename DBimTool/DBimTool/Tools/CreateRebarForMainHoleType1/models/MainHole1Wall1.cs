@@ -27,24 +27,29 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1.models
                 if (RevHole1Info.HoleCircle1)
                 {
                     var opening = new RevOpeningCircle();
-                    opening.Normal = VtY;
+                    opening.VTX = VtX;
+                    opening.VTY = VtY;
+                    opening.VTZ = VtZ;
                     opening.Radius = RevHole1Info.LoMo1_R;
                     opening.Center = Origin - VtZ * (RevHole1Info.ChieuCaoBung / 2 - RevHole1Info.LoMo1_dV - RevHole1Info.LoMo1_R);
+                    opening.Lines = opening.GetLines();
                     result = opening;
                 }
                 if (RevHole1Info.HoleRect1)
                 {
                     var opening = new RevOpeningRect();
-                    opening.Normal = VtY;
+                    opening.VTX = VtX;
+                    opening.VTY = VtY;
+                    opening.VTZ = VtZ;
                     opening.Width = RevHole1Info.LoMo1_B;
                     opening.Height = RevHole1Info.LoMo1_H;
                     opening.Center = Origin - VtZ * (RevHole1Info.ChieuCaoBung / 2 - RevHole1Info.LoMo1_dV - RevHole1Info.LoMo1_H/2);
+                    opening.Lines = opening.GetLines();
                     result = opening;
                 }
             }
             catch (Exception)
             {
-
             }
             return result;
         }

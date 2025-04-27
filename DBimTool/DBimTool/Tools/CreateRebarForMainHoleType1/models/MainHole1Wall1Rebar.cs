@@ -1,5 +1,6 @@
 ﻿using DBimTool.Utils.Geometries;
 using DBimTool.Utils.NumberUtils;
+using DBimTool.Utils.RevCurves;
 using DBimTool.Utils.RevHoles;
 using DBimTool.Utils.RevRebars;
 
@@ -95,9 +96,10 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1.models
         }
         private static List<Line> _initVerticalCenterLineRebar(MainHole1Wall1Rebar wall)
         {
-            var result = new List<Line>();
+            var results = new List<Line>();
             try
             {
+                var result = new List<Line>();
                 var spacingMm = wall.RebarHorizontalNear.SpacingMm;
                 var vtx = wall.HostInfo.VtX;
                 var vty = wall.HostInfo.VtY;
@@ -139,17 +141,24 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1.models
                     {
                     }
                 }
+                if (wall.HostInfo.Opening == null) return result;
+                foreach (var l in result)
+                {
+                    var ls = l.IntersectLineToLine(wall.HostInfo.Opening.Lines, wall.HostInfo.VtY);
+                    if (ls.Any()) results.AddRange(ls);
+                }
             }
             catch (Exception)
             {
             }
-            return result;
+            return results;
         }
         private static List<Line> _initHorizontalCenterLineRebar(MainHole1Wall1Rebar wall)
         {
-            var result = new List<Line>();
+            var results = new List<Line>();
             try
             {
+                var result = new List<Line>();
                 var spacingMm = wall.RebarHorizontalNear.SpacingMm;
                 var vtx = wall.HostInfo.VtX;
                 var vty = wall.HostInfo.VtY;
@@ -191,11 +200,17 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1.models
                     {
                     }
                 }
+                if (wall.HostInfo.Opening == null) return result;
+                foreach (var l in result)
+                {
+                    var ls = l.IntersectLineToLine(wall.HostInfo.Opening.Lines, wall.HostInfo.VtY);
+                    if (ls.Any()) results.AddRange(ls);
+                }
             }
             catch (Exception)
             {
             }
-            return result;
+            return results;
         }
     }
 }

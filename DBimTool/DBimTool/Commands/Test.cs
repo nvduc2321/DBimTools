@@ -27,32 +27,28 @@ namespace DBimTool.Commands
 						UiDocument.Selection.PickObject(ObjectType.Element, 
 						new GenericSelectionFilter(BuiltInCategory.OST_StructuralFoundation))) as FamilyInstance;
 					RevHole1 hole = f.GetRevHole1();
-                    var d1 = new MainHole1Wall1(hole);
 					var sn1 = MainHole1Wall1Rebar.Init(hole, new List<string>());
 					var sn2 = MainHole1Wall2Rebar.Init(hole, new List<string>());
 					var sn3 = MainHole1Wall3Rebar.Init(hole, new List<string>());
 					var sn4 = MainHole1Wall4Rebar.Init(hole, new List<string>());
 
-                    if (d1 != null) { 
-						var l1 = Line.CreateBound(d1.Opening.Center, d1.Opening.Center + d1.VtY * 1000.MmToFoot());
-						using (var ts = new Transaction(Document, "name transaction"))
-						{
-							ts.Start();
-							//--------
-							Document.CreateCurves(sn1.LineCenterVertical.Select(x=> x as Curve).ToList());
-							Document.CreateCurves(sn1.LineCenterHorizontal.Select(x=> x as Curve).ToList());
+					using (var ts = new Transaction(Document, "name transaction"))
+					{
+						ts.Start();
+						//--------
+						Document.CreateCurves(sn1.LineCenterVertical.Select(x=> x as Curve).ToList());
+						Document.CreateCurves(sn1.LineCenterHorizontal.Select(x=> x as Curve).ToList());
 
-                            Document.CreateCurves(sn2.LineCenterVertical.Select(x => x as Curve).ToList());
-                            Document.CreateCurves(sn2.LineCenterHorizontal.Select(x => x as Curve).ToList());
+						Document.CreateCurves(sn2.LineCenterVertical.Select(x => x as Curve).ToList());
+						Document.CreateCurves(sn2.LineCenterHorizontal.Select(x => x as Curve).ToList());
 
-                            Document.CreateCurves(sn3.LineCenterVertical.Select(x => x as Curve).ToList());
-                            Document.CreateCurves(sn3.LineCenterHorizontal.Select(x => x as Curve).ToList());
+						Document.CreateCurves(sn3.LineCenterVertical.Select(x => x as Curve).ToList());
+						Document.CreateCurves(sn3.LineCenterHorizontal.Select(x => x as Curve).ToList());
 
-                            Document.CreateCurves(sn4.LineCenterVertical.Select(x => x as Curve).ToList());
-                            Document.CreateCurves(sn4.LineCenterHorizontal.Select(x => x as Curve).ToList());
-                            //--------
-                            ts.Commit();
-						}
+						Document.CreateCurves(sn4.LineCenterVertical.Select(x => x as Curve).ToList());
+						Document.CreateCurves(sn4.LineCenterHorizontal.Select(x => x as Curve).ToList());
+						//--------
+						ts.Commit();
 					}
 					//--------
                     tsg.Assimilate();

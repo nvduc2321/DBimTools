@@ -1,18 +1,57 @@
 ﻿using DBimTool.Utils.Geometries;
+using DBimTool.Utils.RevFaces;
 
 namespace DBimTool.Utils.RevCurves
 {
     public static class RevCurveUtils
     {
+        public static List<Line> IntersectLineToLine(this Line l, List<Line> ls, XYZ normal)
+        {
+            try
+            {
+                var results = new List<Line>();
+                var p1 = l.GetEndPoint(0);
+                var p2 = l.GetEndPoint(1);
+                var ps = new List<XYZ>();
+                foreach (var line in ls)
+                {
+                    var p1C = line.GetEndPoint(0);
+                    var p2C = line.GetEndPoint(1);
+                    var f = new FaceCustom(normal.CrossProduct(line.Direction()).Normalize(), line.Mid());
+                    var p = p1.RayPointToFace(l.Direction(), f);
+                    if ((p - p1).DotProduct(p - p2) > 0) continue;
+                    if ((p - p1C).DotProduct(p - p2C) > 0) continue;
+                    ps.Add(p);
+                }
+                if (ps.Any())
+                {
+                    ps.Insert(0, p1);
+                    ps.Add(p2);
+                    ps = ps.OrderBy(x=>x.DotProduct(l.Direction())).ToList();
+                    var qPs = ps.Count();
+                    for (int i = 0; i < qPs; i++)
+                    {
+                        if (i % 2 != 0) continue;
+                        var lAdd = ps[i].CreateLine(ps[i + 1]);
+                        results.Add(lAdd);
+                    }
+                }
+                else results.Add(l);
+                return results;
+            }
+            catch (Exception)
+            {
+            }
+            return new List<Line>() { l };
+        }
         public static XYZ Direction(this Curve c)
         {
-            return (c.GetEndPoint(0) - c.GetEndPoint(1)).Normalize(); 
+            return (c.GetEndPoint(0) - c.GetEndPoint(1)).Normalize();
         }
         public static XYZ Direction(this Line l)
         {
             return (l.GetEndPoint(0) - l.GetEndPoint(1)).Normalize();
         }
-
         public static XYZ Mid(this Curve c)
         {
             return (c.GetEndPoint(0) + c.GetEndPoint(1)) * 0.5;
@@ -21,7 +60,6 @@ namespace DBimTool.Utils.RevCurves
         {
             return (l.GetEndPoint(0) + l.GetEndPoint(1)) * 0.5;
         }
-
         public static List<Curve> Copy(this List<Curve> curves, XYZ dirCopy)
         {
             var results = new List<Curve>();
