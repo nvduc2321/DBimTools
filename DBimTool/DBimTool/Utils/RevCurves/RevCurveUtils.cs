@@ -1,4 +1,6 @@
-﻿using DBimTool.Utils.Geometries;
+﻿using DBimTool.Utils.Compares;
+using DBimTool.Utils.Geometries;
+using DBimTool.Utils.NumberUtils;
 using DBimTool.Utils.RevFaces;
 
 namespace DBimTool.Utils.RevCurves
@@ -19,12 +21,15 @@ namespace DBimTool.Utils.RevCurves
                     var p2C = line.GetEndPoint(1);
                     var f = new FaceCustom(normal.CrossProduct(line.Direction()).Normalize(), line.Mid());
                     var p = p1.RayPointToFace(l.Direction(), f);
-                    if ((p - p1).DotProduct(p - p2) > 0) continue;
-                    if ((p - p1C).DotProduct(p - p2C) > 0) continue;
+                    if ((p - p1).Normalize().DotProduct((p - p2).Normalize()).IsGreater(0)) continue;
+                    if ((p - p1C).Normalize().DotProduct((p - p2C).Normalize()).IsGreater(0)) continue;
                     ps.Add(p);
                 }
+                ps = ps.Distinct(new ComparePoint()).ToList();
                 if (ps.Any())
                 {
+                    if (ps.Count % 2 != 0) 
+                        ps.RemoveAt(ps.Count - 1);
                     ps.Insert(0, p1);
                     ps.Add(p2);
                     ps = ps.OrderBy(x=>x.DotProduct(l.Direction())).ToList();

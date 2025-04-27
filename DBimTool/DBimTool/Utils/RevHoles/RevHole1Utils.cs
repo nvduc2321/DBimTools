@@ -44,6 +44,7 @@ namespace DBimTool.Utils.RevHoles
                     LoMo1_dV = double.Parse(f.GetParameterValue(Properties.ParameterMainHole1.LoMo1_dV), System.Globalization.NumberStyles.Number),
                     LoMo1_H = double.Parse(f.GetParameterValue(Properties.ParameterMainHole1.LoMo1_H), System.Globalization.NumberStyles.Number),
                     LoMo1_R = double.Parse(f.GetParameterValue(Properties.ParameterMainHole1.LoMo1_R), System.Globalization.NumberStyles.Number),
+                    LoMo2_B = double.Parse(f.GetParameterValue(Properties.ParameterMainHole1.LoMo2_B), System.Globalization.NumberStyles.Number),
                     LoMo2_dV = double.Parse(f.GetParameterValue(Properties.ParameterMainHole1.LoMo2_dV), System.Globalization.NumberStyles.Number),
                     LoMo2_H = double.Parse(f.GetParameterValue(Properties.ParameterMainHole1.LoMo2_H), System.Globalization.NumberStyles.Number),
                     LoMo2_R = double.Parse(f.GetParameterValue(Properties.ParameterMainHole1.LoMo2_R), System.Globalization.NumberStyles.Number),
