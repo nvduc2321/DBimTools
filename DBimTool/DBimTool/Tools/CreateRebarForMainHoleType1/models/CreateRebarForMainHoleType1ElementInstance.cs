@@ -12,8 +12,12 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1.models
         private CreateRebarForMainHoleType1Cmd _cmd;
         public List<RebarBarType> RevDiameters { get; set; }
         public List<string> Diameters { get; set; }
-        public MainHole1BottomSlabRebar MainHole1BottomSlabRebar { get; set; }
         public RevHole1 RevHole1Info { get; }
+        public MainHole1BottomSlabRebar MainHole1BottomSlabRebar { get; set; }
+        public MainHole1Wall1 MainHole1Wall1 { get; set; }
+        public MainHole1Wall2 MainHole1Wall2 { get; set; }
+        public MainHole1Wall3 MainHole1Wall3 { get; set; }
+        public MainHole1Wall4 MainHole1Wall4 { get; set; }
         public CreateRebarForMainHoleType1ElementInstance(CreateRebarForMainHoleType1Cmd cmd)
         {
             _cmd = cmd;
@@ -22,6 +26,10 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1.models
             var f = _cmd.Document.GetElement(_cmd.UiDocument.Selection.PickObject(ObjectType.Element, new GenericSelectionFilter(BuiltInCategory.OST_StructuralFoundation))) as FamilyInstance;
             RevHole1Info = f.GetRevHole1();
             MainHole1BottomSlabRebar = MainHole1BottomSlabRebar.Init(RevHole1Info, Diameters);
+            MainHole1Wall1 = new MainHole1Wall1(RevHole1Info);
+            MainHole1Wall2 = new MainHole1Wall2(RevHole1Info);
+            MainHole1Wall3 = new MainHole1Wall3(RevHole1Info);
+            MainHole1Wall4 = new MainHole1Wall4(RevHole1Info);
         }
     }
 }

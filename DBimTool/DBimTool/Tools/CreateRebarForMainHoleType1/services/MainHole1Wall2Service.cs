@@ -1,19 +1,9 @@
 ﻿using DBimTool.Tools.CreateRebarForMainHoleType1.iservices;
-using DBimTool.Tools.CreateRebarForMainHoleType1.models;
-using DBimTool.Utils.Geometries;
-using DBimTool.Utils.NumberUtils;
 
 namespace DBimTool.Tools.CreateRebarForMainHoleType1.services
 {
-    public class MainHole1Wall1Service : IMainHole1Wall1Service
+    public class MainHole1Wall2Service : IMainHole1Wall2Service
     {
-        private CreateRebarForMainHoleType1ElementInstance _elementInstances;
-        private List<Line> _lineVerticalCenterLineRebar;
-        private List<Line> _lineHorizontalCenterLineRebar;
-        public MainHole1Wall1Service(CreateRebarForMainHoleType1ElementInstance elementInstances)
-        {
-            _elementInstances = elementInstances;
-        }
         public void InstallRebarHorizontalFar()
         {
             throw new NotImplementedException();
