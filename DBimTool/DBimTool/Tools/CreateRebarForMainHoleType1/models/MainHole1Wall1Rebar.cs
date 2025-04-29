@@ -8,6 +8,8 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1.models
 {
     public class MainHole1Wall1Rebar
     {
+        private static double _spacingMm = 200;
+        private static double _extentMm = 50;
         public MainHole1Wall1 HostInfo { get; set; }
         public RevRebarMesh RebarVerticalNear { get; set; }
         public RevRebarMesh RebarVerticalFar { get; set; }
@@ -21,27 +23,27 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1.models
             {
                 var wall = new MainHole1Wall1Rebar();
                 wall.HostInfo = new MainHole1Wall1(revHole1);
-                wall.RebarVerticalNear = new RevRebarMesh() { NameDiameter = diameters.FirstOrDefault(), SpacingMm = 200, RevRebars = new List<RevRebar>() };
-                wall.RebarVerticalFar = new RevRebarMesh() { NameDiameter = diameters.FirstOrDefault(), SpacingMm = 200, RevRebars = new List<RevRebar>() };
-                wall.RebarHorizontalNear = new RevRebarMesh() { NameDiameter = diameters.FirstOrDefault(), SpacingMm = 200, RevRebars = new List<RevRebar>() };
-                wall.RebarHorizontalFar = new RevRebarMesh() { NameDiameter = diameters.FirstOrDefault(), SpacingMm = 200, RevRebars = new List<RevRebar>() };
+                wall.RebarVerticalNear = new RevRebarMesh() { NameDiameter = diameters.FirstOrDefault(), SpacingMm = _spacingMm, RevRebars = new List<RevRebar>() };
+                wall.RebarVerticalFar = new RevRebarMesh() { NameDiameter = diameters.FirstOrDefault(), SpacingMm = _spacingMm, RevRebars = new List<RevRebar>() };
+                wall.RebarHorizontalNear = new RevRebarMesh() { NameDiameter = diameters.FirstOrDefault(), SpacingMm = _spacingMm, RevRebars = new List<RevRebar>() };
+                wall.RebarHorizontalFar = new RevRebarMesh() { NameDiameter = diameters.FirstOrDefault(), SpacingMm = _spacingMm, RevRebars = new List<RevRebar>() };
                 wall.LineCenterVertical = _initVerticalCenterLineRebar(wall);
                 wall.LineCenterHorizontal = _initHorizontalCenterLineRebar(wall);
-                _generateRebarVerticalNear(wall);
-                _generateRebarVerticalFar(wall);
-                _generateRebarHorizontalNear(wall);
-                _generateRebarHorizontalFar(wall);
                 wall.RebarVerticalNear.SpacingMmChanged = () =>
                 {
                     wall.LineCenterVertical = _initVerticalCenterLineRebar(wall);
-                    _generateRebarVerticalNear(wall);
-                    _generateRebarVerticalFar(wall);
+                };
+                wall.RebarVerticalFar.SpacingMmChanged = () =>
+                {
+                    wall.LineCenterVertical = _initVerticalCenterLineRebar(wall);
                 };
                 wall.RebarHorizontalNear.SpacingMmChanged = () =>
                 {
                     wall.LineCenterHorizontal = _initHorizontalCenterLineRebar(wall);
-                    _generateRebarHorizontalNear(wall);
-                    _generateRebarHorizontalFar(wall);
+                };
+                wall.RebarHorizontalFar.SpacingMmChanged = () =>
+                {
+                    wall.LineCenterHorizontal = _initHorizontalCenterLineRebar(wall);
                 };
                 return wall;
             }
@@ -49,50 +51,6 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1.models
             {
             }
             return null;
-        }
-        private static void _generateRebarVerticalNear(MainHole1Wall1Rebar wall)
-        {
-            var result = new List<RevRebar>();
-            try
-            {
-                
-            }
-            catch (Exception)
-            {
-            }
-        }
-        private static void _generateRebarVerticalFar(MainHole1Wall1Rebar wall)
-        {
-            var result = new List<RevRebar>();
-            try
-            {
-                
-            }
-            catch (Exception)
-            {
-            }
-        }
-        private static void _generateRebarHorizontalNear(MainHole1Wall1Rebar wall)
-        {
-            var result = new List<RevRebar>();
-            try
-            {
-                
-            }
-            catch (Exception)
-            {
-            }
-        }
-        private static void _generateRebarHorizontalFar(MainHole1Wall1Rebar wall)
-        {
-            var result = new List<RevRebar>();
-            try
-            {
-                
-            }
-            catch (Exception)
-            {
-            }
         }
         private static List<Line> _initVerticalCenterLineRebar(MainHole1Wall1Rebar wall)
         {
@@ -114,12 +72,12 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1.models
                 var p7 = wall.HostInfo.PointControls[6];
                 var p8 = wall.HostInfo.PointControls[7];
 
-                var p11 = p1.MidPoint(p2);
-                var p22 = p5.MidPoint(p6);
+                var p11 = p1.MidPoint(p2) - vtz * wall.HostInfo.RevHole1Info.ChieuDayTuongDuoi + vtx * _extentMm.MmToFoot();
+                var p22 = p5.MidPoint(p6) + vtz * wall.HostInfo.RevHole1Info.ChieuDayTuongTren + vtx * _extentMm.MmToFoot();
                 var p33 = p7.MidPoint(p8);
                 var p44 = p3.MidPoint(p4);
                 var lengthMm = p11.Distance(p44).FootToMm();
-                var qty = lengthMm.GetQuantityFromSpacing(spacingMm, 0, out double lengthDuMm);
+                var qty = lengthMm.GetQuantityFromSpacing(spacingMm, _extentMm, out double lengthDuMm);
                 for (int i = 0; i < qty; i++)
                 {
                     try
@@ -173,12 +131,12 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1.models
                 var p7 = wall.HostInfo.PointControls[6];
                 var p8 = wall.HostInfo.PointControls[7];
 
-                var p11 = p1.MidPoint(p2);
+                var p11 = p1.MidPoint(p2) + vtz * _extentMm.MmToFoot();
                 var p22 = p5.MidPoint(p6);
                 var p33 = p7.MidPoint(p8);
-                var p44 = p3.MidPoint(p4);
+                var p44 = p3.MidPoint(p4) + vtz * _extentMm.MmToFoot();
                 var lengthMm = p11.Distance(p22).FootToMm();
-                var qty = lengthMm.GetQuantityFromSpacing(spacingMm, 0, out double lengthDuMm);
+                var qty = lengthMm.GetQuantityFromSpacing(spacingMm, _extentMm, out double lengthDuMm);
                 for (int i = 0; i < qty; i++)
                 {
                     try

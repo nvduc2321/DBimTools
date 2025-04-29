@@ -31,23 +31,23 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1.models
 
         public override XYZ GetOrigin()
         {
-            return RevHole1Info.Origin 
-                - RevHole1Info.VTZ * (RevHole1Info.ChieuCaoCo + RevHole1Info.ChieuDayTuongTren + RevHole1Info.ChieuCaoBung + RevHole1Info.ChieuDayTuongDuoi);
+            return RevHole1Info.Origin
+                - RevHole1Info.VTZ * (RevHole1Info.ChieuCaoCo + RevHole1Info.ChieuDayTuongTren + RevHole1Info.ChieuCaoBung + RevHole1Info.ChieuDayTuongDuoi / 2);
         }
 
         public override List<XYZ> GetPointControls()
         {
             try
             {
-                var p1 = Origin - VtX * Width / 2 - VtY * Length / 2;
-                var p2 = Origin - VtX * Width / 2 + VtY * Length / 2;
-                var p3 = Origin + VtX * Width / 2 + VtY * Length / 2;
-                var p4 = Origin + VtX * Width / 2 - VtY * Length / 2;
+                var p1 = Origin - VtX * Width / 2 - VtY * Length / 2 - VtZ * Thickness / 2;
+                var p2 = Origin - VtX * Width / 2 + VtY * Length / 2 - VtZ * Thickness / 2;
+                var p3 = Origin + VtX * Width / 2 + VtY * Length / 2 - VtZ * Thickness / 2;
+                var p4 = Origin + VtX * Width / 2 - VtY * Length / 2 - VtZ * Thickness / 2;
 
-                var p11 = Origin - VtX * Width / 2 - VtY * Length / 2 + VtZ * Thickness;
-                var p22 = Origin - VtX * Width / 2 + VtY * Length / 2 + VtZ * Thickness;
-                var p33 = Origin + VtX * Width / 2 + VtY * Length / 2 + VtZ * Thickness;
-                var p44 = Origin + VtX * Width / 2 - VtY * Length / 2 + VtZ * Thickness;
+                var p11 = Origin - VtX * Width / 2 - VtY * Length / 2 + VtZ * Thickness / 2;
+                var p22 = Origin - VtX * Width / 2 + VtY * Length / 2 + VtZ * Thickness / 2;
+                var p33 = Origin + VtX * Width / 2 + VtY * Length / 2 + VtZ * Thickness / 2;
+                var p44 = Origin + VtX * Width / 2 - VtY * Length / 2 + VtZ * Thickness / 2;
                 return new List<XYZ> { p1, p2, p3, p4, p11, p22, p33, p44 };
             }
             catch (Exception)

@@ -145,6 +145,23 @@
             <TabItem Header="Setting Wall">
 
             </TabItem>
+            <TabItem Header="Setting">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <StackPanel>
+                            <TextBlock Text="Cover:"/>
+                            <TextBox 
+                                Behavior:TextBoxBehavior.SelectAllTextOnFocus="True"
+                                Text="{Binding CoverMm}"
+                                DataContext="{Binding ElementInstances}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
         </TabControl>
         <StackPanel Margin="0,10,0,0">
             <StackPanel Orientation="Horizontal">

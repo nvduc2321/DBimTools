@@ -27,6 +27,7 @@ namespace DBimTool.Commands
 						UiDocument.Selection.PickObject(ObjectType.Element, 
 						new GenericSelectionFilter(BuiltInCategory.OST_StructuralFoundation))) as FamilyInstance;
 					RevHole1 hole = f.GetRevHole1();
+					var slab1 = MainHole1BottomSlabRebar.Init(hole, new List<string>());
 					var sn1 = MainHole1Wall1Rebar.Init(hole, new List<string>());
 					var sn2 = MainHole1Wall2Rebar.Init(hole, new List<string>());
 					var sn3 = MainHole1Wall3Rebar.Init(hole, new List<string>());
@@ -36,6 +37,9 @@ namespace DBimTool.Commands
 					{
 						ts.Start();
 						//--------
+						Document.CreateCurves(slab1.LineCenterX.Select(x=> x as Curve).ToList());
+						Document.CreateCurves(slab1.LineCenterY.Select(x=> x as Curve).ToList());
+
 						Document.CreateCurves(sn1.LineCenterVertical.Select(x=> x as Curve).ToList());
 						Document.CreateCurves(sn1.LineCenterHorizontal.Select(x=> x as Curve).ToList());
 
