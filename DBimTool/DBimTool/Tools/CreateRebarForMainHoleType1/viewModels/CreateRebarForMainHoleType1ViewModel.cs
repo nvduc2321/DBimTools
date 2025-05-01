@@ -17,6 +17,10 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1.viewModels
         private IMainHole1Wall2Service _mainHole1Wall2Service;
         private IMainHole1Wall3Service _mainHole1Wall3Service;
         private IMainHole1Wall4Service _mainHole1Wall4Service;
+        private IMainHole1NeekWall1Service _mainHole1NeekWall1Service;
+        private IMainHole1NeekWall2Service _mainHole1NeekWall2Service;
+        private IMainHole1NeekWall3Service _mainHole1NeekWall3Service;
+        private IMainHole1NeekWall4Service _mainHole1NeekWall4Service;
         public CreateRebarForMainHoleType1ElementInstance ElementInstances { get; set; }
         public CreateRebarForMainHoleType1View MainView { get; set; }
         public CreateRebarForMainHoleType1ViewModel(
@@ -27,7 +31,11 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1.viewModels
             IMainHole1Wall1Service mainHole1Wall1Service,
             IMainHole1Wall2Service mainHole1Wall2Service,
             IMainHole1Wall3Service mainHole1Wall3Service,
-            IMainHole1Wall4Service mainHole1Wall4Service)
+            IMainHole1Wall4Service mainHole1Wall4Service,
+            IMainHole1NeekWall1Service mainHole1NeekWall1Service,
+            IMainHole1NeekWall2Service mainHole1NeekWall2Service,
+            IMainHole1NeekWall3Service mainHole1NeekWall3Service,
+            IMainHole1NeekWall4Service mainHole1NeekWall4Service)
         {
             _cmd = cmd;
             ElementInstances = elementInstances;
@@ -37,6 +45,10 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1.viewModels
             _mainHole1Wall2Service = mainHole1Wall2Service;
             _mainHole1Wall3Service = mainHole1Wall3Service;
             _mainHole1Wall4Service = mainHole1Wall4Service;
+            _mainHole1NeekWall1Service = mainHole1NeekWall1Service;
+            _mainHole1NeekWall2Service = mainHole1NeekWall2Service;
+            _mainHole1NeekWall3Service = mainHole1NeekWall3Service;
+            _mainHole1NeekWall4Service = mainHole1NeekWall4Service;
             MainView = new CreateRebarForMainHoleType1View() { DataContext = this };
         }
         [RelayCommand]
@@ -77,6 +89,26 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1.viewModels
                 _mainHole1Wall4Service.InstallRebarHorizontalNear();
                 _mainHole1Wall4Service.InstallRebarVerticalFar();
                 _mainHole1Wall4Service.InstallRebarHorizontalFar();
+
+                _mainHole1NeekWall1Service.InstallRebarVerticalNear();
+                _mainHole1NeekWall1Service.InstallRebarHorizontalNear();
+                _mainHole1NeekWall1Service.InstallRebarVerticalFar();
+                _mainHole1NeekWall1Service.InstallRebarHorizontalFar();
+
+                _mainHole1NeekWall2Service.InstallRebarVerticalNear();
+                _mainHole1NeekWall2Service.InstallRebarHorizontalNear();
+                _mainHole1NeekWall2Service.InstallRebarVerticalFar();
+                _mainHole1NeekWall2Service.InstallRebarHorizontalFar();
+
+                _mainHole1NeekWall3Service.InstallRebarVerticalNear();
+                _mainHole1NeekWall3Service.InstallRebarHorizontalNear();
+                _mainHole1NeekWall3Service.InstallRebarVerticalFar();
+                _mainHole1NeekWall3Service.InstallRebarHorizontalFar();
+
+                _mainHole1NeekWall4Service.InstallRebarVerticalNear();
+                _mainHole1NeekWall4Service.InstallRebarHorizontalNear();
+                _mainHole1NeekWall4Service.InstallRebarVerticalFar();
+                _mainHole1NeekWall4Service.InstallRebarHorizontalFar();
                 //--------
                 ts.Commit();
             }
