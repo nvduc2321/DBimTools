@@ -29,5 +29,10 @@ namespace DBimTool.Utils.RevOpenings
             }
             return new List<Line>();
         }
+
+        public override List<Line> GetLinesOnFloor()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

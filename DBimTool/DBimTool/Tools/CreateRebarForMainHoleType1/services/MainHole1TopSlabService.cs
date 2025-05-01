@@ -4,32 +4,31 @@ using DBimTool.Tools.CreateRebarForMainHoleType1.models;
 using DBimTool.Utils.Geometries;
 using DBimTool.Utils.Messages;
 using DBimTool.Utils.NumberUtils;
-using DBimTool.Utils.RevCurves;
 using DBimTool.Utils.RevitElements;
-using Nice3point.Revit.Extensions;
 
 namespace DBimTool.Tools.CreateRebarForMainHoleType1.services
 {
-    public class MainHole1BottomSlabService : IMainHole1BottomSlabService
+    public class MainHole1TopSlabService : IMainHole1TopSlabService
     {
         private CreateRebarForMainHoleType1Cmd _cmd;
         private CreateRebarForMainHoleType1ElementInstance _elementInstance;
-        public MainHole1BottomSlabService(
+        public MainHole1TopSlabService(
             CreateRebarForMainHoleType1Cmd cmd,
             CreateRebarForMainHoleType1ElementInstance elementInstance)
         {
             _cmd = cmd;
             _elementInstance = elementInstance;
         }
+
         public void InstallRebarBotY()
         {
             try
             {
                 var host = _cmd.Document.CreateHost(BuiltInCategory.OST_StructuralFoundation);
-                var slabRebar = _elementInstance.MainHole1BottomSlabRebar;
+                var slabRebar = _elementInstance.MainHole1TopSlabRebar;
                 var cover = _elementInstance.CoverMm.MmToFoot();
                 var diameterType = _elementInstance.RevDiameters
-                    .FirstOrDefault(x=>x.Name == slabRebar.RebarBotY.NameDiameter);
+                    .FirstOrDefault(x => x.Name == slabRebar.RebarBotY.NameDiameter);
                 var diameter = diameterType.BarModelDiameter;
                 var normal = slabRebar.HostInfo.VtX;
                 foreach (var l in slabRebar.LineCenterY)
@@ -40,16 +39,16 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1.services
                         var p1 = l.GetEndPoint(0)
                             + slabRebar.HostInfo.VtZ * (slabRebar.HostInfo.Thickness / 2 - cover - diameter / 2)
                             + dir * (cover + diameter / 2);
-                        var p2 = l.GetEndPoint(0) 
+                        var p2 = l.GetEndPoint(0)
                             - slabRebar.HostInfo.VtZ * (slabRebar.HostInfo.Thickness / 2 - cover - diameter / 2)
                             + dir * (cover + diameter / 2);
-                        var p3 = l.GetEndPoint(1) 
+                        var p3 = l.GetEndPoint(1)
                             - slabRebar.HostInfo.VtZ * (slabRebar.HostInfo.Thickness / 2 - cover - diameter / 2)
                             - dir * (cover + diameter / 2);
                         var p4 = l.GetEndPoint(1)
                             + slabRebar.HostInfo.VtZ * (slabRebar.HostInfo.Thickness / 2 - cover - diameter / 2)
                             - dir * (cover + diameter / 2);
-                        var ps = new List<XYZ> () { p1, p2, p3, p4 };
+                        var ps = new List<XYZ>() { p1, p2, p3, p4 };
                         var cs = ps.PointsToCurves();
                         var rebar = Rebar.CreateFromCurves(
                             _cmd.Document,
@@ -64,7 +63,7 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1.services
                             RebarHookOrientation.Left,
                             true, true);
 
-                        if (_cmd.Document.ActiveView is View3D view3d) 
+                        if (_cmd.Document.ActiveView is View3D view3d)
                             rebar.SetSolidInView(view3d, true);
                     }
                     catch (Exception)
@@ -82,7 +81,7 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1.services
             try
             {
                 var host = _cmd.Document.CreateHost(BuiltInCategory.OST_StructuralFoundation);
-                var slabRebar = _elementInstance.MainHole1BottomSlabRebar;
+                var slabRebar = _elementInstance.MainHole1TopSlabRebar;
                 var cover = _elementInstance.CoverMm.MmToFoot();
                 var diameterType = _elementInstance.RevDiameters
                     .FirstOrDefault(x => x.Name == slabRebar.RebarBotX.NameDiameter);
@@ -141,7 +140,7 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1.services
             try
             {
                 var host = _cmd.Document.CreateHost(BuiltInCategory.OST_StructuralFoundation);
-                var slabRebar = _elementInstance.MainHole1BottomSlabRebar;
+                var slabRebar = _elementInstance.MainHole1TopSlabRebar;
                 var cover = _elementInstance.CoverMm.MmToFoot();
                 var diameterType = _elementInstance.RevDiameters
                     .FirstOrDefault(x => x.Name == slabRebar.RebarTopY.NameDiameter);
@@ -197,7 +196,7 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1.services
             try
             {
                 var host = _cmd.Document.CreateHost(BuiltInCategory.OST_StructuralFoundation);
-                var slabRebar = _elementInstance.MainHole1BottomSlabRebar;
+                var slabRebar = _elementInstance.MainHole1TopSlabRebar;
                 var cover = _elementInstance.CoverMm.MmToFoot();
                 var diameterType = _elementInstance.RevDiameters
                     .FirstOrDefault(x => x.Name == slabRebar.RebarTopX.NameDiameter);

@@ -58,7 +58,7 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1.models
             var result = new List<Line>();
             try
             {
-                var spacing = mainHole1BottomSlabRebar.RebarTopX.SpacingMm;
+                var spacing = mainHole1BottomSlabRebar.RebarTopY.SpacingMm;
                 var vtx = mainHole1BottomSlabRebar.HostInfo.VtX;
                 var vty = mainHole1BottomSlabRebar.HostInfo.VtY;
                 var vtz = mainHole1BottomSlabRebar.HostInfo.VtZ;

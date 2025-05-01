@@ -9,5 +9,6 @@
         public XYZ Center { get; set; }
         public List<Line> Lines { get; set; }
         public abstract List<Line> GetLines();
+        public abstract List<Line> GetLinesOnFloor();
     }
 }

@@ -25,10 +25,15 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1
 					service.AddSingleton<CreateRebarForMainHoleType1ViewModel>();
 					service.AddSingleton<CreateRebarForMainHoleType1ElementInstance>();
 					service.AddSingleton<IMainHole1BottomSlabService, MainHole1BottomSlabService>();
+					service.AddSingleton<IMainHole1TopSlabService, MainHole1TopSlabService>();
 					service.AddSingleton<IMainHole1Wall1Service, MainHole1Wall1Service>();
 					service.AddSingleton<IMainHole1Wall2Service, MainHole1Wall2Service>();
 					service.AddSingleton<IMainHole1Wall3Service, MainHole1Wall3Service>();
 					service.AddSingleton<IMainHole1Wall4Service, MainHole1Wall4Service>();
+					service.AddSingleton<IMainHole1NeekWall1Service, MainHole1NeekWall1Service>();
+					service.AddSingleton<IMainHole1NeekWall2Service, MainHole1NeekWall2Service>();
+					service.AddSingleton<IMainHole1NeekWall3Service, MainHole1NeekWall3Service>();
+					service.AddSingleton<IMainHole1NeekWall4Service, MainHole1NeekWall4Service>();
 					var provider = service.BuildServiceProvider();
 					var vm = provider.GetService<CreateRebarForMainHoleType1ViewModel>();
 					vm.MainView.ShowDialog();

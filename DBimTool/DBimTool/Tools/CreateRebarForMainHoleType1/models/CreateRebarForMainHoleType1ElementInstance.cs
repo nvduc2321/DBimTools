@@ -14,10 +14,11 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1.models
         public List<string> Diameters { get; set; }
         public RevHole1 RevHole1Info { get; }
         public MainHole1BottomSlabRebar MainHole1BottomSlabRebar { get; set; }
-        public MainHole1Wall1 MainHole1Wall1 { get; set; }
-        public MainHole1Wall2 MainHole1Wall2 { get; set; }
-        public MainHole1Wall3 MainHole1Wall3 { get; set; }
-        public MainHole1Wall4 MainHole1Wall4 { get; set; }
+        public MainHole1TopSlabRebar MainHole1TopSlabRebar { get; set; }
+        public MainHole1Wall1Rebar MainHole1Wall1Rebar { get; set; }
+        public MainHole1Wall2Rebar MainHole1Wall2Rebar { get; set; }
+        public MainHole1Wall3Rebar MainHole1Wall3Rebar { get; set; }
+        public MainHole1Wall4Rebar MainHole1Wall4Rebar { get; set; }
         [ObservableProperty]
         private double _coverMm = 20;
         public CreateRebarForMainHoleType1ElementInstance(CreateRebarForMainHoleType1Cmd cmd)
@@ -33,10 +34,11 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1.models
                 as FamilyInstance;
             RevHole1Info = f.GetRevHole1();
             MainHole1BottomSlabRebar = MainHole1BottomSlabRebar.Init(RevHole1Info, Diameters);
-            MainHole1Wall1 = new MainHole1Wall1(RevHole1Info);
-            MainHole1Wall2 = new MainHole1Wall2(RevHole1Info);
-            MainHole1Wall3 = new MainHole1Wall3(RevHole1Info);
-            MainHole1Wall4 = new MainHole1Wall4(RevHole1Info);
+            MainHole1TopSlabRebar = MainHole1TopSlabRebar.Init(RevHole1Info, Diameters);
+            MainHole1Wall1Rebar = MainHole1Wall1Rebar.Init(RevHole1Info, Diameters);
+            MainHole1Wall2Rebar = MainHole1Wall2Rebar.Init(RevHole1Info, Diameters);
+            MainHole1Wall3Rebar = MainHole1Wall3Rebar.Init(RevHole1Info, Diameters);
+            MainHole1Wall4Rebar = MainHole1Wall4Rebar.Init(RevHole1Info, Diameters);
         }
     }
 }
