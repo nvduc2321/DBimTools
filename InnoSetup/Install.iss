@@ -42,7 +42,7 @@ CloseApplications=force
 [Components]
 Name: "Revit2022"; Description: "Add-in Revit 2022"; Types: full
 Name: "Revit2023"; Description: "Add-in Revit 2023"; Types: full
-Name: "Revit2024"; Description: "Add-in Revit 2024"; Types: full
+;Name: "Revit2024"; Description: "Add-in Revit 2024"; Types: full
 
 [Messages]
 WelcomeLabel2=Hello!
@@ -136,5 +136,5 @@ function PrepareToInstall(var NeedsRestart: boolean): string;
 Source: "UninsIS.dll"; Flags: dontcopy
 Source: "Content\2022\*"; DestDir: "{app}\Autodesk\Revit\Addins\2022"; Components: Revit2022; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "Content\2023\*"; DestDir: "{app}\Autodesk\Revit\Addins\2023"; Components: Revit2023; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "Content\2024\*"; DestDir: "{app}\Autodesk\Revit\Addins\2024"; Components: Revit2024; Flags: ignoreversion recursesubdirs createallsubdirs
+;Source: "Content\2024\*"; DestDir: "{app}\Autodesk\Revit\Addins\2024"; Components: Revit2024; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files

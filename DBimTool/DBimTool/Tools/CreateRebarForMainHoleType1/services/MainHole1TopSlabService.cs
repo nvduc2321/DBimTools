@@ -64,7 +64,13 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1.services
                             true, true);
 
                         if (_cmd.Document.ActiveView is View3D view3d)
+                        {
+
+#if REVIT2024 || REVIT2025
+#else
                             rebar.SetSolidInView(view3d, true);
+#endif
+                        }
                     }
                     catch (Exception)
                     {
@@ -123,7 +129,13 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1.services
                             true, true);
 
                         if (_cmd.Document.ActiveView is View3D view3d)
+                        {
+
+#if REVIT2024 || REVIT2025
+#else
                             rebar.SetSolidInView(view3d, true);
+#endif
+                        }
                     }
                     catch (Exception)
                     {
@@ -179,7 +191,13 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1.services
                             true, true);
 
                         if (_cmd.Document.ActiveView is View3D view3d)
+                        {
+
+#if REVIT2024 || REVIT2025
+#else
                             rebar.SetSolidInView(view3d, true);
+#endif
+                        }
                     }
                     catch (Exception)
                     {
@@ -238,7 +256,13 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1.services
                             true, true);
 
                         if (_cmd.Document.ActiveView is View3D view3d)
+                        {
+
+#if REVIT2024 || REVIT2025
+#else
                             rebar.SetSolidInView(view3d, true);
+#endif
+                        }
                     }
                     catch (Exception)
                     {

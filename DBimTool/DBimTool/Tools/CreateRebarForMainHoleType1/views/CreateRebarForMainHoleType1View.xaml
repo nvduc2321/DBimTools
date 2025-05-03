@@ -33,31 +33,31 @@
             <TabItem Header="Setting Bot Slab">
                 <StackPanel>
                     <GroupBox Header="TopY">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <StackPanel 
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel 
                             Margin="0,0,5,0"
                             Grid.Column="0">
-                            <TextBlock Text="Diameter"/>
-                            <ComboBox
+                                <TextBlock Text="Diameter"/>
+                                <ComboBox
                                 DataContext="{Binding ElementInstances}"
                                 ItemsSource="{Binding Diameters}"
                                 SelectedItem="{Binding MainHole1BottomSlabRebar.RebarTopY.NameDiameter}"/>
-                        </StackPanel>
-                        <StackPanel 
+                            </StackPanel>
+                            <StackPanel 
                             Margin="5,0,0,0"
                             Grid.Column="1">
-                            <TextBlock Text="Spacing"/>
-                            <TextBox
+                                <TextBlock Text="Spacing"/>
+                                <TextBox
                                 Behavior:TextBoxBehavior.SelectAllTextOnFocus="True"
                                 DataContext="{Binding ElementInstances.MainHole1BottomSlabRebar}"
                                 Text="{Binding RebarTopY.SpacingMm, UpdateSourceTrigger=PropertyChanged,Delay=500}"/>
-                        </StackPanel>
-                    </Grid>
-                </GroupBox>
+                            </StackPanel>
+                        </Grid>
+                    </GroupBox>
                     <GroupBox Header="BotY">
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -140,10 +140,222 @@
                 </StackPanel>
             </TabItem>
             <TabItem Header="Setting Top SLab">
-
+                <StackPanel>
+                    <GroupBox Header="TopY">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel 
+                                Margin="0,0,5,0"
+                                Grid.Column="0">
+                                <TextBlock Text="Diameter"/>
+                                <ComboBox
+                                    DataContext="{Binding ElementInstances}"
+                                    ItemsSource="{Binding Diameters}"
+                                    SelectedItem="{Binding MainHole1TopSlabRebar.RebarTopY.NameDiameter}"/>
+                            </StackPanel>
+                            <StackPanel 
+                                Margin="5,0,0,0"
+                                Grid.Column="1">
+                                <TextBlock Text="Spacing"/>
+                                <TextBox
+                                    Behavior:TextBoxBehavior.SelectAllTextOnFocus="True"
+                                    DataContext="{Binding ElementInstances.MainHole1TopSlabRebar}"
+                                    Text="{Binding RebarTopY.SpacingMm, UpdateSourceTrigger=PropertyChanged,Delay=500}"/>
+                            </StackPanel>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="BotY">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel 
+                                Margin="0,0,5,0"
+                                Grid.Column="0">
+                                <TextBlock 
+                                    Text="Diameter"/>
+                                <ComboBox
+                                    DataContext="{Binding ElementInstances}"
+                                    ItemsSource="{Binding Diameters}"
+                                    SelectedItem="{Binding MainHole1TopSlabRebar.RebarBotY.NameDiameter}"/>
+                            </StackPanel>
+                            <StackPanel 
+                                Margin="5,0,0,0"
+                                Grid.Column="1">
+                                <TextBlock Text="Spacing"/>
+                                <TextBox 
+                                    Behavior:TextBoxBehavior.SelectAllTextOnFocus="True"
+                                    DataContext="{Binding ElementInstances.MainHole1TopSlabRebar}"
+                                    Text="{Binding RebarBotY.SpacingMm, UpdateSourceTrigger=PropertyChanged,Delay=500}"/>
+                            </StackPanel>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="TopX">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel 
+                                Margin="0,0,5,0"
+                                Grid.Column="0">
+                                <TextBlock Text="Diameter"/>
+                                <ComboBox
+                                    DataContext="{Binding ElementInstances}"
+                                    ItemsSource="{Binding Diameters}"
+                                    SelectedItem="{Binding MainHole1TopSlabRebar.RebarTopX.NameDiameter}"/>
+                            </StackPanel>
+                            <StackPanel 
+                                Margin="5,0,0,0"
+                                Grid.Column="1">
+                                <TextBlock Text="Spacing"/>
+                                <TextBox
+                                    Behavior:TextBoxBehavior.SelectAllTextOnFocus="True"
+                                    DataContext="{Binding ElementInstances.MainHole1TopSlabRebar}"
+                                    Text="{Binding RebarTopX.SpacingMm, UpdateSourceTrigger=PropertyChanged,Delay=500}"/>
+                            </StackPanel>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="BotX">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel 
+                                Margin="0,0,5,0"
+                                Grid.Column="0">
+                                <TextBlock Text="Diameter"/>
+                                <ComboBox
+                                    DataContext="{Binding ElementInstances}"
+                                    ItemsSource="{Binding Diameters}"
+                                    SelectedItem="{Binding MainHole1TopSlabRebar.RebarBotX.NameDiameter}"/>
+                            </StackPanel>
+                            <StackPanel 
+                                Margin="5,0,0,0"
+                                Grid.Column="1">
+                                <TextBlock Text="Spacing"/>
+                                <TextBox
+                                    Behavior:TextBoxBehavior.SelectAllTextOnFocus="True"
+                                    DataContext="{Binding ElementInstances.MainHole1TopSlabRebar}"
+                                    Text="{Binding RebarBotX.SpacingMm, UpdateSourceTrigger=PropertyChanged,Delay=500}"/>
+                            </StackPanel>
+                        </Grid>
+                    </GroupBox>
+                </StackPanel>
             </TabItem>
             <TabItem Header="Setting Wall">
-
+                <StackPanel>
+                    <GroupBox Header="Vertical Near">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel 
+                                Margin="0,0,5,0"
+                                Grid.Column="0">
+                                <TextBlock Text="Diameter"/>
+                                <ComboBox
+                                    DataContext="{Binding ElementInstances}"
+                                    ItemsSource="{Binding Diameters}"
+                                    SelectedItem="{Binding MainHole1Wall1Rebar.RebarVerticalNear.NameDiameter}"/>
+                            </StackPanel>
+                            <StackPanel 
+                                Margin="5,0,0,0"
+                                Grid.Column="1">
+                                <TextBlock Text="Spacing"/>
+                                <TextBox
+                                    Behavior:TextBoxBehavior.SelectAllTextOnFocus="True"
+                                    DataContext="{Binding ElementInstances.MainHole1Wall1Rebar}"
+                                    Text="{Binding RebarVerticalNear.SpacingMm, UpdateSourceTrigger=PropertyChanged,Delay=500}"/>
+                            </StackPanel>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Horizontal Near">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel 
+                                Margin="0,0,5,0"
+                                Grid.Column="0">
+                                <TextBlock 
+                                    Text="Diameter"/>
+                                <ComboBox
+                                    DataContext="{Binding ElementInstances}"
+                                    ItemsSource="{Binding Diameters}"
+                                    SelectedItem="{Binding MainHole1Wall1Rebar.RebarHorizontalNear.NameDiameter}"/>
+                            </StackPanel>
+                            <StackPanel 
+                                Margin="5,0,0,0"
+                                Grid.Column="1">
+                                <TextBlock Text="Spacing"/>
+                                <TextBox 
+                                    Behavior:TextBoxBehavior.SelectAllTextOnFocus="True"
+                                    DataContext="{Binding ElementInstances.MainHole1Wall1Rebar}"
+                                    Text="{Binding RebarHorizontalNear.SpacingMm, UpdateSourceTrigger=PropertyChanged,Delay=500}"/>
+                            </StackPanel>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Vertical Far">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel 
+                Margin="0,0,5,0"
+                Grid.Column="0">
+                                <TextBlock Text="Diameter"/>
+                                <ComboBox
+                                    DataContext="{Binding ElementInstances}"
+                                    ItemsSource="{Binding Diameters}"
+                                    SelectedItem="{Binding MainHole1Wall1Rebar.RebarVerticalFar.NameDiameter}"/>
+                            </StackPanel>
+                            <StackPanel 
+                                Margin="5,0,0,0"
+                                Grid.Column="1">
+                                <TextBlock Text="Spacing"/>
+                                <TextBox
+                                    Behavior:TextBoxBehavior.SelectAllTextOnFocus="True"
+                                    DataContext="{Binding ElementInstances.MainHole1Wall1Rebar}"
+                                    Text="{Binding RebarVerticalFar.SpacingMm, UpdateSourceTrigger=PropertyChanged,Delay=500}"/>
+                            </StackPanel>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Horizontal Far">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel 
+                                Margin="0,0,5,0"
+                                Grid.Column="0">
+                                <TextBlock Text="Diameter"/>
+                                <ComboBox
+                                    DataContext="{Binding ElementInstances}"
+                                    ItemsSource="{Binding Diameters}"
+                                    SelectedItem="{Binding MainHole1Wall1Rebar.RebarHorizontalFar.NameDiameter}"/>
+                            </StackPanel>
+                            <StackPanel 
+                                Margin="5,0,0,0"
+                                Grid.Column="1">
+                                <TextBlock Text="Spacing"/>
+                                <TextBox
+                                    Behavior:TextBoxBehavior.SelectAllTextOnFocus="True"
+                                    DataContext="{Binding ElementInstances.MainHole1Wall1Rebar}"
+                                    Text="{Binding RebarHorizontalFar.SpacingMm, UpdateSourceTrigger=PropertyChanged,Delay=500}"/>
+                            </StackPanel>
+                        </Grid>
+                    </GroupBox>
+                </StackPanel>
             </TabItem>
             <TabItem Header="Setting">
                 <Grid>

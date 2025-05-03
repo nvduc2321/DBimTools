@@ -1,6 +1,7 @@
 ﻿using Autodesk.Revit.DB.Events;
 using Autodesk.Revit.UI;
 using DBimTool.Commands;
+using DBimTool.Tools.CreateRebarForMainHoleType1;
 using Nice3point.Revit.Toolkit.External;
 
 namespace DBimTool
@@ -30,7 +31,7 @@ namespace DBimTool
         private void _initPanelCmdMainHoleRebar()
         {
             //create plan view
-            PANEL_MAIN_HOLE.AddPushButton<Commands.Test>("abc")
+            PANEL_MAIN_HOLE.AddPushButton<CreateRebarForMainHoleType1Cmd>("Create Rebar")
                 .SetImage("/DBimTool;component/Resources/Icons/RibbonIcon16.png")
                 .SetLargeImage("/DBimTool;component/Resources/Icons/RibbonIcon32.png");
 

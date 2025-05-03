@@ -156,7 +156,11 @@ namespace DBimTool.Utils.RevParameters
                         para.Set(paraValue);
                         break;
                     case StorageType.ElementId:
+#if REVIT2024 || REVIT2025
+                        para.Set(new ElementId(long.Parse(paraValue)));
+#else
                         para.Set(new ElementId(int.Parse(paraValue)));
+#endif
                         break;
                 }
 
@@ -185,7 +189,11 @@ namespace DBimTool.Utils.RevParameters
                         para.Set(paraValue);
                         break;
                     case StorageType.ElementId:
+#if REVIT2024 || REVIT2025
+                        para.Set(new ElementId(long.Parse(paraValue)));
+#else
                         para.Set(new ElementId(int.Parse(paraValue)));
+#endif
                         break;
                 }
 
