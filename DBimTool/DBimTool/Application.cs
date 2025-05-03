@@ -1,4 +1,5 @@
-﻿using Autodesk.Revit.UI;
+﻿using Autodesk.Revit.DB.Events;
+using Autodesk.Revit.UI;
 using DBimTool.Commands;
 using Nice3point.Revit.Toolkit.External;
 
@@ -9,16 +10,23 @@ namespace DBimTool
         public RibbonPanel PANEL_MAIN_HOLE { get; private set; }
         public override void OnStartup()
         {
-            _initTabTool();
-            _initPanelCmdMainHoleRebar();
+            Application.ControlledApplication.ApplicationInitialized += OnApplicationInitialized;
         }
-        private void _initTabTool()
+        private void OnApplicationInitialized(object sender, ApplicationInitializedEventArgs e)
         {
-            Application.CreateRibbonTab(Properties.Standard.TAB_NAME);
+            try
+            {
+                Application.CreateRibbonTab(Properties.Standard.TAB_NAME);
+            }
+            catch (Exception)
+            {
+            }
             PANEL_MAIN_HOLE = Application.CreateRibbonPanel(
                 Properties.Standard.TAB_NAME,
                 Properties.Standard.PANNEL_MAIN_HOLE);
+            _initPanelCmdMainHoleRebar();
         }
+
         private void _initPanelCmdMainHoleRebar()
         {
             //create plan view

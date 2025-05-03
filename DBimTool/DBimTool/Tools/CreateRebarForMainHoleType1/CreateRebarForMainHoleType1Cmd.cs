@@ -19,8 +19,8 @@ namespace DBimTool.Tools.CreateRebarForMainHoleType1
 				tsg.Start();
 				try
 				{
-					//--------
-					var service = new ServiceCollection();
+                    //--------
+                    var service = new ServiceCollection();
 					service.AddSingleton<CreateRebarForMainHoleType1Cmd>();
 					service.AddSingleton<CreateRebarForMainHoleType1ViewModel>();
 					service.AddSingleton<CreateRebarForMainHoleType1ElementInstance>();
